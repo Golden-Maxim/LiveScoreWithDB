@@ -3,6 +3,7 @@ package utils;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
+import java.time.Duration;
 import java.time.LocalDate;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -16,6 +17,7 @@ public class DatePicker {
 
 
     public void verifyCalendarIsOpened(){
+        WaitsUtils.untilElementsAppearInDom();
         calendarBody.shouldHave(Condition.attribute("class", "Pc isActive"));
     }
     public void selectDayInThisMonth(LocalDate localDate){

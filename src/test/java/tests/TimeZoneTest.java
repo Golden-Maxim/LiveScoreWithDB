@@ -15,12 +15,12 @@ public class TimeZoneTest extends BaseTest {
     @Test
     public void verifyTimeChangeAccordinglyTest() {
         new CalendarFeature().openDatePicker()
-                .selectFollowingDateInThisMonth(LocalDate.now().plusDays(2));
+                .selectFollowingDateInThisMonth(LocalDate.now().plusDays(1));
         new EventFeature().openFirstEvent();
         String day = new EventFeature().getEventDay();
         String time = new EventFeature().getEventTime();
         String originalTimeZone = "UTC+03:00";
-        String targetTimeZone = "UTC -06:00";
+        String targetTimeZone = "UTC +14:00";
 
         new SideMenuFeature().openBurgerMenu()
                 .verifyBurgerMenu()
