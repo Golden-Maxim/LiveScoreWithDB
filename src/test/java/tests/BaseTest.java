@@ -10,41 +10,40 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 public abstract class BaseTest {
 
     private final static String BASE_URL = "https://www.livescore.com/";
     private final SelenideElement cookies = $("#simpleCookieBarCloseButton");
 
-    public void setUp(){
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
         Configuration.driverManagerEnabled = true;
         Configuration.headless = false;
         Configuration.browserSize = "1920x1080";
     }
-    public void handleCookies(){
-        if (cookies.isDisplayed()){
+
+    public void handleCookies() {
+        if (cookies.isDisplayed()) {
             cookies.click();
         }
     }
 
-
     @BeforeClass
-    public void init(){
+    public void init() {
         setUp();
     }
 
     @BeforeTest()
-    public void openBaseURL(){
+    public void openBaseURL() {
         Selenide.open(BASE_URL);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         handleCookies();
     }
 
     @AfterClass
-    public void tearDown(){
+    public void tearDown() {
         Selenide.closeWebDriver();
     }
 
