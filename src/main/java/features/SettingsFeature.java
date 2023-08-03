@@ -9,10 +9,8 @@ public class SettingsFeature {
         this.settingsPage = new SettingsPage();
     }
 
-
-    public void selectTimeZone(String value){
+    public void selectTimeZone(String value) {
         settingsPage.selectTimeZone(value);
     }
-
 
 }

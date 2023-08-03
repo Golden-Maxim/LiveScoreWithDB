@@ -7,6 +7,7 @@ import features.SideMenuFeature;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.SettingsPage;
+import utils.TimeZoneUtils;
 
 import java.time.LocalDate;
 
@@ -31,7 +32,7 @@ public class TimeZoneTest extends BaseTest {
         String updatedTime = new EventFeature().getEventTime();
 
         var whiteSpaceLessTimeZone = targetTimeZone.replaceAll("\\s+", "");
-        var zonedDateTime = SettingsPage.convertTimeZone(time, day, originalTimeZone, whiteSpaceLessTimeZone);
+        var zonedDateTime = TimeZoneUtils.convertTimeZone(time, day, originalTimeZone, whiteSpaceLessTimeZone);
 
         Assert.assertEquals(updatedDay + " " + updatedTime, zonedDateTime);
 

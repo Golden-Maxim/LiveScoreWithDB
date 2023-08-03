@@ -1,19 +1,18 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
+import static utils.VerifyUtils.verifyElementAttribute;
 
 public class MainPage {
 
     private final SelenideElement datePicker = $x("//div[@id = 'match-calendar-dp-trigger']");
     private final SelenideElement burgerMenu = $x("//span[@id = 'burger-menu-open']");
     private final SelenideElement burgerMenuBody = $x("//div[@id = 'burger-menu-body']");
-    private final ElementsCollection events = $$x("//div[@class = 'To']");
-
+    private final ElementsCollection events = $$x("//div[contains(@id, 'match-row-favorite-wrapper')]/ancestor::a");
 
     public MainPage clickToDatePicker() {
         datePicker.click();
@@ -21,7 +20,7 @@ public class MainPage {
     }
 
     public MainPage verifyDatePickerIsOpened() {
-        datePicker.shouldHave(Condition.attribute("class", "Pc isActive"));
+        verifyElementAttribute(datePicker);
         return this;
     }
 
@@ -35,7 +34,7 @@ public class MainPage {
     }
 
     public void verifyBurgerMenuIsOpened() {
-        burgerMenuBody.shouldHave(Condition.attribute("class", "Sa isActive"));
+        verifyElementAttribute(burgerMenuBody);
     }
 
 }
