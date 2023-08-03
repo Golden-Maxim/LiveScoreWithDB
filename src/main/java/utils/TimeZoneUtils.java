@@ -1,5 +1,6 @@
 package utils;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
@@ -7,7 +8,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TimeZoneUtils {
 
     public static String convertTimeZone(String time, String date, String originalTimeZone, String targetTimeZone) {

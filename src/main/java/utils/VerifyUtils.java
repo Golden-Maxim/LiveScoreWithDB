@@ -1,9 +1,10 @@
 package utils;
 
 import com.codeborne.selenide.SelenideElement;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class VerifyUtils {
 
     public static boolean verifyElementAttribute(SelenideElement element) {
