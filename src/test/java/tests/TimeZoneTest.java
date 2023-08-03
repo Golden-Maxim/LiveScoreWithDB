@@ -4,9 +4,9 @@ import features.CalendarFeature;
 import features.EventFeature;
 import features.SettingsFeature;
 import features.SideMenuFeature;
+import org.apache.commons.lang3.StringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.SettingsPage;
 import utils.TimeZoneUtils;
 
 import java.time.LocalDate;
@@ -21,20 +21,19 @@ public class TimeZoneTest extends BaseTest {
         String day = new EventFeature().getEventDay();
         String time = new EventFeature().getEventTime();
         String originalTimeZone = "UTC+03:00";
-        String targetTimeZone = "UTC +14:00";
+        String targetTimeZone = "UTC +05:00";
 
         new SideMenuFeature().openBurgerMenu()
                 .verifyBurgerMenu()
                 .openSettingsPage();
         new SettingsFeature().selectTimeZone(targetTimeZone);
 
-        String updatedDay = new EventFeature().getEventDay();
-        String updatedTime = new EventFeature().getEventTime();
+        String timeZoneFromApp = new EventFeature().getEventDay() + StringUtils.SPACE + new EventFeature().getEventTime();
 
         var whiteSpaceLessTimeZone = targetTimeZone.replaceAll("\\s+", "");
-        var zonedDateTime = TimeZoneUtils.convertTimeZone(time, day, originalTimeZone, whiteSpaceLessTimeZone);
+        var expectedTimeZone = TimeZoneUtils.convertTimeZone(time, day, originalTimeZone, whiteSpaceLessTimeZone);
 
-        Assert.assertEquals(updatedDay + " " + updatedTime, zonedDateTime);
+        Assert.assertEquals(timeZoneFromApp, expectedTimeZone);
 
     }
 
