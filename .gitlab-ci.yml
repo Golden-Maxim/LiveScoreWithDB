@@ -1,4 +1,4 @@
-image: maven:3.8-openjdk-11
+image: ikudinov/docker-selenide-gitlab-ci
 
 default:
   tags:
@@ -15,15 +15,8 @@ Simple test with allure:
     - echo "Test started!!!"
   after_script:
     - mvn allure:report
-    - echo "Allure report - https://${CI_PROJECT_NAMESPACE}.${CI_PAGES_DOMAIN}/-/${CI_PROJECT_NAME}/-/jobs/${CI_JOB_ID}/artifacts/target/site/allure-maven-plugin/index.html"
   artifacts:
     when: always
     paths:
       - target/site/allure-maven-plugin
 
-pages:
-  stage: deploy
-  when: always
-  script:
-    - mkdir public
-    - cp -r target/site/allure-maven-plugin/* public
