@@ -11,11 +11,9 @@ Simple test with allure:
   stage: test
   script:
     - mvn clean test
-    - echo "Test started!!!"
-  after_script:
     - mvn allure:report
+    - echo "Test started!!!"
   artifacts:
-    when: always
     paths:
       - target/site/allure-maven-plugin
 
