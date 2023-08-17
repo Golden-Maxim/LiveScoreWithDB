@@ -1,0 +1,22 @@
+image: maven:3.8-openjdk-11
+
+default:
+  tags:
+    - gitlab-org
+
+stages:
+  - test
+  - deploy
+
+Simple test with allure:
+  stage: test
+  script:
+    - mvn clean test
+    - echo "Test started!!!"
+  after_script:
+    - mvn allure:report
+    - echo "Allure report - https://${CI_PROJECT_NAMESPACE}.${CI_PAGES_DOMAIN}/-/${CI_PROJECT_NAME}/-/jobs/${CI_JOB_ID}/artifacts/target/site/allure-maven-plugin/index.html"
+  artifacts:
+    when: always
+    paths:
+      - target/site/allure-maven-plugin
