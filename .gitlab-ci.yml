@@ -1,4 +1,4 @@
-image: ikudinov/docker-selenide-gitlab-ci
+image: maven:3.8-openjdk-19
 
 default:
   tags:
