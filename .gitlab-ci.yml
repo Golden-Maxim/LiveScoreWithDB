@@ -6,7 +6,6 @@ default:
 
 stages:
   - test
-  - deploy
 
 Simple test with allure:
   stage: test
