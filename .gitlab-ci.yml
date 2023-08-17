@@ -1,4 +1,4 @@
-image: maven:3.8-openjdk-11
+image: ikudinov/docker-selenide-gitlab-ci
 
 default:
   tags:
@@ -10,5 +10,7 @@ stages:
 Simple test with allure:
   stage: test
   script:
+    - docker pull ikudinov/docker-selenide-gitlab-ci
+    - ./download-chrome.sh && ./run-tests.sh
     - mvn clean test
 
