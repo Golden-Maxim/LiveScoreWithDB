@@ -2,7 +2,7 @@ image: maven:3.8-openjdk-11
 
 default:
   tags:
-    - gitlab-org-docker
+    - gitlab-org
 
 stages:
   - test
