@@ -20,3 +20,10 @@ Simple test with allure:
     when: always
     paths:
       - target/site/allure-maven-plugin
+
+pages:
+  stage: deploy
+  when: always
+  script:
+    - mkdir public
+    - cp -r target/site/allure-maven-plugin/* public
