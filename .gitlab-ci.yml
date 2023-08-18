@@ -6,6 +6,6 @@ stages:
 Simple test with allure:
   stage: test
   script:
-    - apt-get update -qy
-    - apt-get install -y openjdk-11-jdk maven
+    - sudo apt-get update -qy
+    - sudo apt-get install -y openjdk-11-jdk maven
     - mvn clean test
