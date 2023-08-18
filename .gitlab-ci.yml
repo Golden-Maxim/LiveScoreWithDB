@@ -3,11 +3,9 @@ image: selenium/standalone-chrome:115.0
 stages:
   - test
 
-
 Simple test with allure:
   stage: test
-  before_script:
-    - sudo apt install java-11-openjdk
-    - sudo apt install maven
   script:
+    - apt-get update -qy
+    - apt-get install -y openjdk-11-jdk maven
     - mvn clean test
