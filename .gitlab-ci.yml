@@ -1,10 +1,13 @@
-image: maven:3.8-openjdk-11
+image: selenium/standalone-chrome:115.0
 
 stages:
   - test
 
 Simple test with allure:
   stage: test
+  before_script:
+    - sudo apt-get -qqy install ./jdk-19_linux-x64_bin.deb
+    - sudo apt install maven
   script:
     - mvn clean test
 
