@@ -32,7 +32,7 @@ public abstract class BaseTest {
 
     @BeforeClass
     public void init() {
-        // setUp();
+         setUp();
     }
 
     @BeforeTest()
