@@ -9,6 +9,5 @@ Simple test with allure:
     - apt update
     - apt install -y wget
     - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - dpkg -i google-chrome-stable_current_amd64.deb
   script:
     - mvn clean test
