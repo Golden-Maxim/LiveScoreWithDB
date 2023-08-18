@@ -17,7 +17,7 @@ public abstract class BaseTest {
     private final SelenideElement cookies = $("#simpleCookieBarCloseButton");
 
     public void setUp() {
-        Configuration.headless = false;
+        Configuration.headless = true;
         Configuration.browserSize = "1920x1080";
     }
 
