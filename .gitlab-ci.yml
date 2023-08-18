@@ -11,3 +11,11 @@ Simple test with allure:
     - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   script:
     - mvn clean test
+  after_script:
+    - mvn allure:report
+    - echo "Allure report - https://${CI_PROJECT_NAMESPACE}.${CI_PAGES_DOMAIN}/-/${CI_PROJECT_NAME}/-/jobs/${CI_JOB_ID}/artifacts/target/site/allure-maven-plugin/index.html"
+artifacts:
+      when: always
+      paths:
+        - target/site/allure-maven-plugin
+
