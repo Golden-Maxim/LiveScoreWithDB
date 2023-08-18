@@ -17,10 +17,7 @@ public abstract class BaseTest {
     private final SelenideElement cookies = $("#simpleCookieBarCloseButton");
 
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        Configuration.browser = "chrome";
-        Configuration.driverManagerEnabled = true;
-        Configuration.headless = true;
+        Configuration.headless = false;
         Configuration.browserSize = "1920x1080";
     }
 
