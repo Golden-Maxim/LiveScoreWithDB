@@ -1,9 +1,15 @@
-image: selenium/standalone-chrome-debug:3.141.59
+image: maven:3.8.6-openjdk-11
 
 stages:
   - test
 
 Simple test with allure:
   stage: test
+  before_script:
+    - sudo apt update
+    - sudo apt install wget
+    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - sudo dpkg -i google-chrome-stable_current_amd64.deb
+    - google-chrome
   script:
     - mvn clean test
