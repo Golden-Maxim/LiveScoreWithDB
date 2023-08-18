@@ -7,8 +7,7 @@ Simple test with allure:
   stage: test
   before_script:
     - apt update
-    - apt install -y wget
-    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - apt install -y chrome
   script:
     - mvn clean test
   after_script:
