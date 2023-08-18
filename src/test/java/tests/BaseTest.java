@@ -32,14 +32,14 @@ public abstract class BaseTest {
 
     @BeforeClass
     public void init() {
-     /*    setUp();*/
+         setUp();
     }
 
     @BeforeTest()
     public void openBaseURL() {
-   /*     Selenide.open(BASE_URL);
+        Selenide.open(BASE_URL);
         WebDriverRunner.getWebDriver().manage().window().maximize();
-        handleCookies();*/
+        handleCookies();
     }
 
     @AfterClass
