@@ -7,7 +7,7 @@ stages:
 Simple test with allure:
   stage: test
   before_script:
-    - sudo yum install java-11-openjdk
-    - sudo yum install maven
+    - sudo apt install java-11-openjdk
+    - sudo apt install maven
   script:
     - mvn clean test
