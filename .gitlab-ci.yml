@@ -11,6 +11,7 @@ new_job:
     DOCKER_DRIVER: overlay2
   before_script:
     - apt-get update && apt-get install -y docker-compose
+    - apk update && apk add --no-cache jq
     - docker-compose -f ${SELENOID_DOCKER_COMPOSE_FILE} up -d selenoid
     - sleep 5
     - docker ps -a
