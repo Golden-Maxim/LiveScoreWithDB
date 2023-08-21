@@ -17,6 +17,8 @@ import org.testng.annotations.BeforeTest;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -58,7 +60,17 @@ public abstract class BaseTest {
         remoteWebDriver.setFileDetector(new LocalFileDetector());
         remoteWebDriver.get(BASE_URL);*/
 
+        var options = new ChromeOptions();
+        Map<String, Object> selenoidOptions = new HashMap<>();
+        selenoidOptions.put("enableVideo", false);
+        selenoidOptions.put("enableVNC", true);
+        //  selenoidOptions.put("screenResolution", ConfigProvider.CONFIG_PROPS.selenideScreenResolution());
+        selenoidOptions.put("enableLog", true);
+        selenoidOptions.put("version", "115");
+        options.setCapability("selenoid:options", selenoidOptions);
+        options.setCapability("browserName", "chrome");
 
+        Configuration.browserCapabilities = options;
         Configuration.headless =true;
 
         Selenide.open(BASE_URL);
