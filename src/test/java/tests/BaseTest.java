@@ -59,7 +59,6 @@ public abstract class BaseTest {
         remoteWebDriver.get(BASE_URL);*/
 
 
-
         Configuration.headless =true;
 
         Selenide.open(BASE_URL);

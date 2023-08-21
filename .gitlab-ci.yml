@@ -1,8 +1,7 @@
-image: docker:latest
-services:
-  - docker:dind
 new_job:
   image: maven:3.8.6-openjdk-11
+  services:
+    - docker:dind
   variables:
     SELENOID_PORT: 4444
     SELENOID_CONF: "./browsers.json"
