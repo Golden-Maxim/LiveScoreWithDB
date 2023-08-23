@@ -59,6 +59,7 @@ public abstract class BaseTest {
         RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
         remoteWebDriver.setFileDetector(new LocalFileDetector());
         remoteWebDriver.get(BASE_URL);*/
+        System.out.println(1);
 
         var options = new ChromeOptions();
         Map<String, Object> selenoidOptions = new HashMap<>();
@@ -71,7 +72,7 @@ public abstract class BaseTest {
         options.setCapability("browserName", "chrome");
 
         Configuration.browserCapabilities = options;
-        Configuration.headless =true;
+        Configuration.headless =false;
 
         Selenide.open(BASE_URL);
         WebDriverRunner.getWebDriver().manage().window().maximize();
