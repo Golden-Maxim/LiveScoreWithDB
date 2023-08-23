@@ -67,7 +67,7 @@ public abstract class BaseTest {
         selenoidOptions.put("enableVNC", true);
         //  selenoidOptions.put("screenResolution", ConfigProvider.CONFIG_PROPS.selenideScreenResolution());
         selenoidOptions.put("enableLog", true);
-        selenoidOptions.put("version", "115");
+        selenoidOptions.put("version", "116");
         options.setCapability("selenoid:options", selenoidOptions);
         options.setCapability("browserName", "chrome");
 

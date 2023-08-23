@@ -15,7 +15,7 @@ new_job:
     DOCKER_DRIVER: overlay2
   before_script:
     - apt-get update && apt-get install -y docker-compose jq
-    - docker pull selenoid/vnc_chrome:115.0
+    - docker pull selenoid/vnc_chrome:116.0
     - docker-compose -f ${SELENOID_DOCKER_COMPOSE_FILE} up -d
     - sleep 10
     - docker ps -a
