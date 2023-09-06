@@ -67,16 +67,20 @@ public abstract class BaseTest {
         selenoidOptions.put("version", "116");
         options.setCapability("selenoid:options", selenoidOptions);
         options.setCapability("browserName", "chrome");
+        options.setCapability("browserVersion", "116");
         System.setProperty("selenide.browser", "chrome");
 
        // Configuration.baseUrl = "https://www.wikipedia.org/";
         Configuration.browserCapabilities = options;
         Configuration.headless =false;
-        Configuration.remote = "http://localhost:4445/wd/hub";
+        //Configuration.remote = "http://localhost:4445/wd/hub";
 
-        ChromeDriver driver = new ChromeDriver(options);
-        driver.get(BASE_URL);
-        driver.getCurrentUrl();
+
+        RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://172.17.0.1:4444"), options);
+        remoteWebDriver.setFileDetector(new LocalFileDetector());
+        remoteWebDriver.get(BASE_URL);
+
+        Selenide.open(BASE_URL);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         handleCookies();
     }
