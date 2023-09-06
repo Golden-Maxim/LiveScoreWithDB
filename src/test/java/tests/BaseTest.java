@@ -80,7 +80,7 @@ public abstract class BaseTest {
         remoteWebDriver.setFileDetector(new LocalFileDetector());
         remoteWebDriver.get(BASE_URL);
 
-        Selenide.open(BASE_URL);
+       // Selenide.open(BASE_URL);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         handleCookies();
     }
