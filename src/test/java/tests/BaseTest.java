@@ -7,6 +7,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.LocalFileDetector;
@@ -73,7 +74,9 @@ public abstract class BaseTest {
         Configuration.headless =false;
         Configuration.remote = "http://localhost:4445/wd/hub";
 
-        Selenide.open(BASE_URL);
+        ChromeDriver driver = new ChromeDriver(options);
+        driver.get(BASE_URL);
+        driver.getCurrentUrl();
         WebDriverRunner.getWebDriver().manage().window().maximize();
         handleCookies();
     }
