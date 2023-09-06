@@ -72,11 +72,11 @@ public abstract class BaseTest {
 
        // Configuration.baseUrl = "https://www.wikipedia.org/";
         Configuration.browserCapabilities = options;
-        Configuration.headless =false;
+        Configuration.headless = false;
         //Configuration.remote = "http://localhost:4445/wd/hub";
 
 
-        RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://172.17.0.1:4444"), options);
+        RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         remoteWebDriver.setFileDetector(new LocalFileDetector());
         remoteWebDriver.get(BASE_URL);
 
