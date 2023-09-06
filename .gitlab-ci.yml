@@ -19,6 +19,7 @@ test:
     WORK_DIR: "/usr/src/project"
     MAVEN_CACHE: ".m2/repository/"
   script:
+    - apt-get update && apt-get install -y docker-compose jq
     - docker-compose -f ${SELENOID_DOCKER_COMPOSE_FILE} up -d selenoid
     - sleep 5
     - docker ps -a
