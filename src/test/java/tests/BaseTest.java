@@ -49,7 +49,7 @@ public abstract class BaseTest {
         options.setCapability("selenoid:options", selenoidOptions);
         options.setCapability("browserName", "chrome");
         options.setCapability("browserVersion", "116");
-        System.setProperty("selenide.browser", "chrome");
+        //System.setProperty("selenide.browser", "chrome");
 
         Configuration.browserCapabilities = options;
         Configuration.headless = false;
