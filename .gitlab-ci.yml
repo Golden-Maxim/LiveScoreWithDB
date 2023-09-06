@@ -22,7 +22,7 @@ test:
     - docker-compose -f ${SELENOID_DOCKER_COMPOSE_FILE} up -d selenoid
     - sleep 5
     - docker ps -a
-    - DOCKER_RESOLVED_IP=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' aerokube__selenoid)
+    - DOCKER_RESOLVED_IP=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' livescore-selenoid-1) # Update container name here
     - SELENOID_HOST=http://${DOCKER_RESOLVED_IP}:${SELENOID_PORT}
     - echo "SELENOID_HOST:${SELENOID_HOST}"
     - cat ${SELENOID_CONF} | jq -r '..|.image?|strings' | xargs -I{} docker pull {}
