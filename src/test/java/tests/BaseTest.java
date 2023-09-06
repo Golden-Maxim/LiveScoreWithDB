@@ -78,7 +78,7 @@ public abstract class BaseTest {
 
         RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         remoteWebDriver.setFileDetector(new LocalFileDetector());
-      //  remoteWebDriver.get(BASE_URL);
+        remoteWebDriver.get(BASE_URL);
 
         Selenide.open(BASE_URL);
         WebDriverRunner.getWebDriver().manage().window().maximize();
