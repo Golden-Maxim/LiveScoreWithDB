@@ -28,18 +28,6 @@ public abstract class BaseTest {
     private final static String BASE_URL = "https://www.livescore.com/";
     private final SelenideElement cookies = $("#simpleCookieBarCloseButton");
 
-    @SneakyThrows
-    public void setUp() {
-      /*  ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setCapability("browserVersion", "115");
-        RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://172.17.0.1:4444"), chromeOptions);
-        remoteWebDriver.setFileDetector(new LocalFileDetector());
-        remoteWebDriver.get(BASE_URL);*/
-
-        //Configuration.headless = true;
-        //Configuration.browserSize = "1920x1080";
-        //Configuration.remote = "http://172.17.0.1:4444";
-    }
 
     public void handleCookies() {
         if (cookies.isDisplayed()) {
@@ -47,17 +35,10 @@ public abstract class BaseTest {
         }
     }
 
-    @BeforeClass(alwaysRun = true)
-    public void init() {
-         setUp();
-    }
-
 
     @BeforeTest(alwaysRun = true)
     public void openBaseURL() throws MalformedURLException {
-
-        System.out.println(1);
-
+        //Selenide options
         var options = new ChromeOptions();
         Map<String, Object> selenoidOptions = new HashMap<>();
         selenoidOptions.put("enableVideo", false);
@@ -70,18 +51,16 @@ public abstract class BaseTest {
         options.setCapability("browserVersion", "116");
         System.setProperty("selenide.browser", "chrome");
 
-       // Configuration.baseUrl = "https://www.wikipedia.org/";
         Configuration.browserCapabilities = options;
-        Configuration.headless = true;
-        //Configuration.remote = "http://localhost:4445/wd/hub";
-
+        Configuration.headless = false;
+       // Configuration.remote = "http://localhost:4445/wd/hub";
 
         RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         remoteWebDriver.setFileDetector(new LocalFileDetector());
         remoteWebDriver.get(BASE_URL);
 
-        Selenide.open(BASE_URL);
-        WebDriverRunner.getWebDriver().manage().window().maximize();
+       // Selenide.open(BASE_URL);
+        // WebDriverRunner.getWebDriver().manage().window().maximize();
         handleCookies();
     }
 
