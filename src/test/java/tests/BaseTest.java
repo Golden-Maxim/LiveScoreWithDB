@@ -54,11 +54,7 @@ public abstract class BaseTest {
 
     @BeforeTest(alwaysRun = true)
     public void openBaseURL() throws MalformedURLException {
-      /*  ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setCapability("browserVersion", "115");
-        RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
-        remoteWebDriver.setFileDetector(new LocalFileDetector());
-        remoteWebDriver.get(BASE_URL);*/
+
         System.out.println(1);
 
         var options = new ChromeOptions();
@@ -70,9 +66,12 @@ public abstract class BaseTest {
         selenoidOptions.put("version", "116");
         options.setCapability("selenoid:options", selenoidOptions);
         options.setCapability("browserName", "chrome");
+        System.setProperty("selenide.browser", "chrome");
 
+       // Configuration.baseUrl = "https://www.wikipedia.org/";
         Configuration.browserCapabilities = options;
         Configuration.headless =false;
+        Configuration.remote = "http://localhost:4445/wd/hub";
 
         Selenide.open(BASE_URL);
         WebDriverRunner.getWebDriver().manage().window().maximize();
