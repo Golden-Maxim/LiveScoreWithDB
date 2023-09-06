@@ -15,7 +15,7 @@ test:
   variables:
     SELENOID_PORT: 4444
     SELENOID_CONF: "./browsers.json"
-    SELENOID_DOCKER_COMPOSE_FILE: "./docker-compose.yaml"
+    SELENOID_DOCKER_COMPOSE_FILE: "./docker-compose.yml"
     WORK_DIR: "/usr/src/project"
     MAVEN_CACHE: ".m2/repository/"
   script:
