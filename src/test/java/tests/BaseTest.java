@@ -39,6 +39,7 @@ public abstract class BaseTest {
     @BeforeTest(alwaysRun = true)
     public void openBaseURL() throws MalformedURLException {
         //Selenide options
+        WebDriverManager.chromedriver().setup();
         var options = new ChromeOptions();
         Map<String, Object> selenoidOptions = new HashMap<>();
         selenoidOptions.put("enableVideo", false);
@@ -54,7 +55,6 @@ public abstract class BaseTest {
         Configuration.browserCapabilities = options;
         Configuration.headless = true;
        // Configuration.remote = "http://localhost:4445/wd/hub";
-        WebDriverManager.chromedriver().setup();
 
       /*  RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         remoteWebDriver.setFileDetector(new LocalFileDetector());
