@@ -6,7 +6,7 @@ run selenoid:
   variables:
     SELENOID_PORT: 4444
     SELENOID_CONF: "./browsers.json"
-    SELENOID_DOCKER_COMPOSE_FILE: "../docker-compose.yml"
+    SELENOID_DOCKER_COMPOSE_FILE: "./docker-compose.yml"
     DOCKER_TLS_CERTDIR: ""
     DOCKER_HOST: tcp://docker:2375
     DOCKER_DRIVER: overlay2
@@ -21,4 +21,4 @@ run selenoid:
     - export SELENOID_RESOLVED_IP=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' aerokube__selenoid)
     - echo "DOCKER_HOST=tcp://$DOCKER_RESOLVED_IP:2375" > .docker_env
     - echo "SELENOID_HOST=http://selenoid:4444"
-    - mvn clean test
+    - mvn clean test -Dselenide.remote=http://$SELENOID_RESOLVED_IP:4444/wd/hub -X
