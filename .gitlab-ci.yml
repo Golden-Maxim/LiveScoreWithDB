@@ -1,8 +1,5 @@
-default:
-  tags:
-    - docker
 
-new_job:
+run selenoid:
   image: maven:3.8.6-openjdk-11
   services:
     - docker:dind
