@@ -52,7 +52,7 @@ public abstract class BaseTest {
         //System.setProperty("selenide.browser", "chrome");
 
         Configuration.browserCapabilities = options;
-        Configuration.headless = false;
+        Configuration.headless = true;
        // Configuration.remote = "http://localhost:4445/wd/hub";
         WebDriverManager.chromedriver().setup();
 
