@@ -6,7 +6,7 @@ run selenoid:
   variables:
     SELENOID_PORT: 4444
     SELENOID_CONF: "./browsers.json"
-    SELENOID_DOCKER_COMPOSE_FILE: "./docker-compose.yml"
+    SELENOID_DOCKER_COMPOSE_FILE: "../docker-compose.yml"
     DOCKER_TLS_CERTDIR: ""
     DOCKER_HOST: tcp://docker:2375
     DOCKER_DRIVER: overlay2
