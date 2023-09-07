@@ -45,11 +45,6 @@
             <version>6.16.1</version>
         </dependency>
         <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>5.4.1</version>
-        </dependency>
-        <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <scope>test</scope>
@@ -60,6 +55,17 @@
             <artifactId>lombok</artifactId>
             <version>1.18.28</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide-selenoid</artifactId>
+            <version>6.18.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.5.3</version>
         </dependency>
     </dependencies>
 

@@ -54,12 +54,16 @@ public abstract class BaseTest {
         Configuration.browserCapabilities = options;
         Configuration.headless = false;
        // Configuration.remote = "http://localhost:4445/wd/hub";
+        WebDriverManager.chromedriver().setup();
 
-        RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+      /*  RemoteWebDriver remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         remoteWebDriver.setFileDetector(new LocalFileDetector());
-        remoteWebDriver.get(BASE_URL);
+        remoteWebDriver.get(BASE_URL);*/
 
-       // Selenide.open(BASE_URL);
+
+        // correct version
+        WebDriverRunner.setWebDriver(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options));
+        Selenide.open(BASE_URL);
         // WebDriverRunner.getWebDriver().manage().window().maximize();
         handleCookies();
     }
