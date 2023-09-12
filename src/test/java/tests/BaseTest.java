@@ -36,7 +36,7 @@ public abstract class BaseTest {
     }
 
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void openBaseURL() throws MalformedURLException {
         //Selenide options
         WebDriverManager.chromedriver().setup();
