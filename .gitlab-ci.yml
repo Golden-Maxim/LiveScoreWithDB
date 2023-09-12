@@ -1,6 +1,5 @@
-
 run selenoid:
-  image: maven:3.8.6-openjdk-11
+  image: maven:3.8-openjdk-11
   services:
     - docker:dind
   variables:
