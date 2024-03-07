@@ -4,8 +4,8 @@ import pages.EventPage;
 import pages.MainPage;
 
 public class EventFeature {
-    private MainPage mainPage;
-    private EventPage eventPage;
+    private final MainPage mainPage;
+    private final EventPage eventPage;
 
     public EventFeature() {
         this.mainPage = new MainPage();

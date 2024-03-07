@@ -5,8 +5,8 @@ import pages.MainPage;
 
 public class SideMenuFeature {
 
-    private MainPage mainPage;
-    private BurgerMenu burgerMenu;
+    private final MainPage mainPage;
+    private final BurgerMenu burgerMenu;
 
     public SideMenuFeature() {
         this.mainPage = new MainPage();
