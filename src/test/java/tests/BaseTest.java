@@ -72,6 +72,7 @@ public abstract class BaseTest {
     @AfterClass
     public void tearDown() {
         Selenide.closeWebDriver();
+        //run test in git lab
     }
 
 }
